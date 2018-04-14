@@ -3,7 +3,9 @@ guid: 68c84922c7164954789cb70c75e4e0b6
 timeCreated: 1523687908
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: fondo_0
+    21300002: fondo_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -89,7 +91,51 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: fondo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1460
+        width: 1760
+        height: 1331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1760, y: -666}
+        - {x: -1760, y: 666}
+        - {x: 5, y: 666}
+        - {x: -0.6390381, y: -666}
+      - - {x: -1750.8639, y: 482.75146}
+        - {x: -1750.8639, y: 639.79443}
+        - {x: -1747.5226, y: 639.79443}
+        - {x: -1747.5226, y: 482.75146}
+      - - {x: -1, y: -666}
+        - {x: 5, y: 666}
+        - {x: 1760, y: 666}
+        - {x: 1760, y: -666}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fondo_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1762
+        height: 1332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -881, y: -666}
+        - {x: 881, y: -666}
+        - {x: 881, y: 666}
+        - {x: -881, y: 666}
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
