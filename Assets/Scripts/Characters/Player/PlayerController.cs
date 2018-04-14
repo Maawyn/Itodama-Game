@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     public float moveX;
     public Animator anim;
 
-    public bool grounded = false;
+    public bool grounded = true;
 
     private Rigidbody2D rb;
 
@@ -33,7 +33,9 @@ public class PlayerController : MonoBehaviour {
         // Animation
         anim.SetFloat("MoveX", moveX);
         // DIRECTION
-        if (Input.GetButtonDown("Jump"))
+
+        anim.SetBool("Grounded", grounded);
+        if (Input.GetButtonDown("Jump") && grounded == true)
         {
             Jump();
         }
@@ -56,7 +58,6 @@ public class PlayerController : MonoBehaviour {
         // JUMP
         rb.AddForce(Vector2.up * playerJumpPower);
         grounded = false;
-        anim.SetBool("Grounded", grounded);
     }
 
 
