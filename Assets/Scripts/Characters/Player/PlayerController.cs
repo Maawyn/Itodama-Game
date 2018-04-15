@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D rb;
 
+    private bool isTorchEnabled;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour {
         // Physics
 
         rb.velocity = new Vector2(moveX * playerSpeed, rb.velocity.y);
+        
     }
 
     void Jump()
@@ -67,6 +70,10 @@ public class PlayerController : MonoBehaviour {
         facingRight = !facingRight;
         //gameObject.GetComponent<SpriteRenderer>().flipX = facingRight;
         anim.SetBool("FacingRight",facingRight);
+    }
+    public bool IsTorchEnabled()
+    {
+        return true;
     }
 
 }

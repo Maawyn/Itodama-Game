@@ -18,7 +18,6 @@ public class GroundChecker : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enter Trigger");
         pc.grounded = true;
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -28,7 +27,6 @@ public class GroundChecker : MonoBehaviour {
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Exit Trigger");
         pc.grounded = false;
     }
 }
