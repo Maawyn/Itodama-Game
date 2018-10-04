@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickUp
   - HUB
+  - Die
   layers:
   - Default
   - TransparentFX

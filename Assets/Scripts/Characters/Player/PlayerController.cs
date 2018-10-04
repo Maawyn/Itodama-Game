@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public float moveX;
     public Animator anim;
 
+    public Light luzFarol;
     public bool grounded = true;
 
     private Rigidbody2D rb;
@@ -26,34 +27,45 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         PlayerMove();
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (luzFarol.intensity > 0)
+                luzFarol.intensity = 0;
+            else if (luzFarol.intensity < 1)
+                luzFarol.intensity = 1;
+        }
 	}
 
     void PlayerMove()
     {
-        // Controls
-        moveX = Input.GetAxis("Horizontal");
-        // Animation
-        anim.SetFloat("MoveX", moveX);
-        // DIRECTION
-
-        anim.SetBool("Grounded", grounded);
-        if (Input.GetButtonDown("Jump") && grounded == true)
+        if (!GameController.instance.IsStopped())
         {
-            Jump();
+            // Controls
+            moveX = Input.GetAxis("Horizontal");
+            // Animation
+            anim.SetFloat("MoveX", moveX);
+            // DIRECTION
+
+            anim.SetBool("Grounded", grounded);
+            if (Input.GetButtonDown("Jump") && grounded == true)
+            {
+                Jump();
+            }
+
+            if (moveX < 0.0f && facingRight == true)//cuando movimiento
+                                                    //menor que 0 y NO está girado hacia la derecha
+            {
+                FlipPlayer();
+            }
+            else if (moveX > 0.0f && facingRight == false)
+            {
+                FlipPlayer();
+            }
+            // Physics
+
+            rb.velocity = new Vector2(moveX * playerSpeed, rb.velocity.y);
         }
-
-        if (moveX < 0.0f && facingRight == true)//cuando movimiento
-            //menor que 0 y NO está girado hacia la derecha
-        {
-            FlipPlayer();
-        } else if (moveX > 0.0f && facingRight == false)
-        {
-            FlipPlayer();
-        }
-        // Physics
-
-        rb.velocity = new Vector2(moveX * playerSpeed, rb.velocity.y);
-        
     }
 
     void Jump()
@@ -76,4 +88,4 @@ public class PlayerController : MonoBehaviour {
         return true;
     }
 
-}
+ }

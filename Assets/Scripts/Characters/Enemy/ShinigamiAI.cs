@@ -24,13 +24,16 @@ public class ShinigamiAI : MonoBehaviour
         {
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
 
-            if (hitInfo.collider.CompareTag("Player") && hitInfo.collider.gameObject.GetComponent<PlayerController>().IsTorchEnabled())
+            if (hitInfo.collider.CompareTag("Player") && hitInfo.collider.gameObject.GetComponent<PlayerController>().luzFarol.intensity > 0)
             {
-                Destroy(hitInfo.collider.gameObject);
+                GameObject jugador = hitInfo.collider.gameObject;
+                GameController.instance.isGameover = true;
             }
+            
         }
         else
         {
+            print("con la luz apagada no te ve");
             Debug.DrawLine(transform.position, transform.position + transform.right * distance, Color.green);
         }
     }
